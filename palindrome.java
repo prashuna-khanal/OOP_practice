@@ -4,19 +4,38 @@ import java.util.Scanner;
 
 public class palindrome {
     public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter a number: ");
-        String str=sc.next();
-        int length=str.length();
-        String reversedString="";  
-        for(int i=length-1;i>=0;i--){
-            reversedString+=str.charAt(i);
+        int num = sc.nextInt();
+
+        int temp = num; // Use temp to count digits
+        int digits = 0; 
+        int reversed = 0;
+        int original = num;
+
+        // Count the number of digits in temp
+        while (temp != 0) {
+            temp /= 10;
+            digits++;
         }
-        if (str.equals(reversedString)){
+
+        // Now reverse the number using num (which is still original)
+        for (int i = 0; i < digits; i++) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+
+        System.out.println("Number of digits: " + digits);
+        System.out.println("Reversed number: " + reversed);
+        System.out.println("Original number: " + original);
+
+        if (original == reversed) {
             System.out.println("It is a palindrome number");
-        }else{
-            System.out.println("Not a plindrome number");
+        } else {
+            System.out.println("Not a palindrome number");
         }
+
         sc.close();
     }
 }

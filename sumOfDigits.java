@@ -6,15 +6,23 @@ public class sumOfDigits {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the a number: ");
-        String num = sc.nextLine();
+        int num = sc.nextInt();
         sc.close();
-        int len= num.length();
-        int sum=0;
-        for(int i=0;i<len;i++){
-            sum+=(num.charAt(i));
+        int temp = num;
+        int digits =0;
+        int sum = 0;
+         // Count the number of digits in temp
+         while (temp != 0) {
+            temp /= 10;
+            digits++;
         }
-        System.out.println("Sum of digits of number - "+num+" is "+sum);
 
+        for (int i = 0; i < digits; i++) {
+            int digit = num % 10;
+            sum = sum + digit;
+            num /= 10;            
+        }
+        System.out.println("Sum of digits: "+sum);
 
     }
     
