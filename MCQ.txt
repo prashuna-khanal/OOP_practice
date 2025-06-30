@@ -1,0 +1,339 @@
+    1. Which of the following is not a valid Java data type?
+        a. int
+        b. boolean
+        c. string  {answer: string is not a valid data type in Java, it should be String}
+        d. double
+    2. What is the default value of a boolean variable in Java (if not initialized)?
+        a. true
+        b. false {answer: false is the default value of a boolean variable in Java}
+        c. 0
+        d. null
+    3. Which method is automatically called when an object is created in Java?
+        a. finalize()
+        b. toString()
+        c. constructor {answer: constructor is automatically called when an object is created in Java}
+        d. init()
+    4. Which keyword is used to handle exceptions in Java?
+        a. static
+        b. catch {answer: catch is used to handle exceptions in Java}
+        c. final
+        d. if
+    5.Which of the following allows a class to inherit from another class in Java?
+        a. super
+        b. this
+        c. implements
+        d. extends {answer: extends is used to allow a class to inherit from another class in Java}
+    6. Which access modifier allows access to members within the same package and
+        subclasses?
+        a. public
+        b. private
+        c. protected {answer: protected allows access to members within the same package and subclasses}
+        d. default
+    7. What will be the output of the following code?
+    String s1 = "hello";
+    String s2 = "hello";
+    System.out.println(s1 == s2);
+        a. true {answer: true because string literals are interned in Java}
+        b. false
+        c. compile error
+        d. runtime error
+    8. What does this keyword refer to in Java?
+        a. The parent class object
+        b. The current class object {answer: this keyword refers to the current class object in Java}
+        c. The child class object
+        d. A static variable
+    9. Which access modifier allows visibility within the same package but not in subclasses
+    outside the package?
+        a. public
+        b. private
+        c. protected
+        d. default {answer: default allows visibility within the same package but not in subclasses outside the package}
+
+     10. What is the output of the following?
+    System.out.println(10 + 20 + "Java" + 10 + 20);
+        a. 30Java1020 {answer: 30Java1020 because of string concatenation}
+        b. Java102030
+        c. Java3030
+        d. 1020Java30
+    11. Which of the following is true about a constructor?
+        a. It must have a return type 
+        b. It can be called directly by its name
+        c. It is used to initialize objects {answer: It is used to initialize objects}
+        d. It is called only once per class
+
+    12. What does the static keyword define in a method or variable?
+        a. The value can change anytime
+        b. It belongs to the class, not an object {answer: It belongs to the class, not an object}
+        c. It cannot be accessed in main method
+        d. It causes method overloading
+
+
+1. Explain the difference between abstract class and interface in Java. Provide one example for
+each.
+= Abstract class and interface are core concepts of Abstraction which ensures that only the functional 
+part is exposed to the user keeping the complex implementation part hidden. Abstract class cannot be instantiated and 
+can contain both abstract class and concrete method.Abstract class ensures only partial abstraction and the abstract
+keyword is used to define an abstract class.A class can only inherit from only one abstract class at a time.
+
+Interface supports in full and complete abstraction containing all the abstract methods only, no concrete class
+can be created under interface. A class can implement multiple interface at a time. Since all the methods in it
+are abstract no constructors can be created since, abstract methods cannot be instantiated or doesn't have a body.
+interface keyword is written to create an interface for complete abstraction.
+ // abstract class
+abstract class Animal {
+    // Abstract method
+    abstract void makeSound();
+    // Concrete method
+    void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+public class TestAbstract {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.makeSound(); // Output: Bark
+        d.sleep();     // Output: Sleeping...
+    }
+}
+
+//interface
+interface Flyable {
+    void fly();
+}
+
+class Bird implements Flyable {
+    @Override
+    public void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+
+public class TestInterface {
+    public static void main(String[] args) {
+        Bird b = new Bird();
+        b.fly(); // Output: Bird is flying
+    }
+}
+
+2. Describe the concept of polymorphism in Java with suitable examples. Differentiate between
+compile-time and runtime polymorphism.
+= Polymorphism is one of the four pillers of object oritented programming which allows objects to behave
+differently. It hels to create more flexible code by allowing a common method or class to perfor m different classes.
+There are two types of polymorphism in java which are given below:
+difference between compile time and runtime polymorphism
+
+- Compile time polymorphism is also known as method overloading and runtime polymorphism is known as method overriding
+- Compile time polymorphism is resolved by the compiler at compile time however runtime polymorphism happens at runtime
+- Compile time polymorphism is less flexible as all the things execute at compile time and run time polymorphism is more flexible as all the things execute at run time
+- Interitance is not supported in compile time where as interitance is involved in run time polymorphism.
+
+Section C
+c. Inheritance
+Inheritance in java is a core concept where sub class inherits the property and attributes of parent class.Types of Inheritance:
+
+1. Single level inheritance
+2. Hierarchical Inheritance
+3. multilevel inheritance and Java doesnot support multiple inheritance
+   syntax: access_modifier class parent_class{
+   // statements to be executed
+   }
+   access_modifier class child_class extends parent_class{
+   //statements to be executed
+   }
+   example:
+   public class Parent{
+   public void parentMethod(){
+   System.out.println("parent");
+   }
+   }
+   public class Child extends Parent{
+   public void childMethod(){
+   super.parentMethod();
+   Syste.out.println("child method)
+   }
+   }
+
+
+public class Main{
+Child obj = new Child();
+obj.childMethod();
+
+}
+
+a. Final keyword
+A final keyword is used as a non-access modififer used for method, variable or a class.It restricts a user from moditications and inheriting properties.
+Syntax: final data_type variable_name;
+example
+public class Example{
+public static void main(String[] args){
+final int a=10;
+System.out.println("Value of a is "+a);
+}
+}
+
+b. Getter and Setter methods
+Getter methods are used to read the value of a private variable and setter methods are used to modify the value of private variable. These are the part of encapsulation.
+example:
+public class Person{
+private String name; //private= restricted area
+//getter
+public String getName(){
+return name;
+}
+public void setName(String name){
+this.name=name;
+}
+
+}
+public class Main{
+public static void main(String[] args){
+Person obj= new Person();
+// setting the value for name variable
+obj.setName("Babita");
+System.out.println("The name is :" +obj.setName());
+}
+}
+
+d. do-while loop
+The do/while loop is a type of while loop. This loop will execute the code block once, before checking if the condition is true. Then it will repeat the long as long as the condition is true.
+syntax:
+do{
+//code block to be executed
+}
+while(condition);
+example:
+public class DoWhile{
+public static void main(String[] args){
+int i=0;
+do{
+System.out.println(i);
+i++;
+}
+}
+while(i<5);
+}
+
+<!-- Section D -->
+
+1.  Create a Java program that demonstrates inheritance:
+    ●
+    Define a superclass Vehicle with attributes brand and a method start().
+    ●
+    Create a subclass Car that adds a model name and overrides the start() method.
+    ●
+    Use the super keyword appropriately.
+    ●
+    Demonstrate the working in the main method.
+    // Superclass vehicle
+    class Vehicle {
+    String number;
+
+        // Constructor
+        Vehicle(String number) {
+            this.number = number;
+        }
+
+        // method to be overridden
+        void start() {
+            System.out.println(number + " vehicle is starting");
+        }
+
+    }
+
+// Subclass
+class Car extends Vehicle {
+String model;
+
+    // Constructor using super to call parent constructor
+    Car(String number, String model) {
+        super(number); // calls Vehicle constructor
+        this.model = model;
+    }
+
+    // Overriding the start() method
+    @Override
+    void start() {
+        super.start(); // call Vehicle's start() method
+        System.out.println("Car model " + model + " is now running.");
+    }
+
+}
+
+// Main class
+public class Main {
+public static void main(String[] args) {
+Car myCar = new Car("BA2304", "Corolla");
+myCar.start(); // Calls overridden method
+}
+}
+
+2.  Design a Java class called Student with attributes id, name, and marks:
+    ●
+    Create a method to calculate the grade based on marks using this rule:
+    ○
+    80+ : A
+    ○
+    60–79 : B
+    ○
+    40–59 : C
+    ○
+    Below 40 : F
+    ●
+    Create multiple student objects and display their grades.
+    class Student {
+    int id;
+    String name;
+    int marks;
+
+        // Constructor
+        Student(int id, String name, int marks) {
+            this.id = id;
+            this.name = name;
+            this.marks = marks;
+        }
+
+        // Method to calculate grade
+        String calculateGrade() {
+            if (marks >= 80) {
+                return "A";
+            } else if (marks >= 60) {
+                return "B";
+            } else if (marks >= 40) {
+                return "C";
+            } else {
+                return "F";
+            }
+        }
+
+        // Method to display student details
+        void displayInfo() {
+            System.out.println("ID: " + id + ", Name: " + name + ", Marks: " + marks + ", Grade: " + calculateGrade());
+        }
+
+    }
+
+public class MainClass {
+public static void main(String[] args) {
+// Creating multiple student objects
+Student s1 = new Student(1, "Babita", 85);
+Student s2 = new Student(2, "Prashuna", 72);
+
+        // Display student grades
+        s1.displayInfo();
+        s2.displayInfo();
+
+    }
+
+}
+
+
+
+
