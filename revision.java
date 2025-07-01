@@ -12,6 +12,7 @@ public class revision {
         System.out.println(str2.equals(str22)); //content checking
         int a =3;
         System.out.println(++a + a++); // ++a = 4, a++ = 4 (but a becomes 5 after this operation), so it prints 4 + 4 = 8
-
+//
+// 
     }
 }

@@ -274,7 +274,7 @@ Car myCar = new Car("BA2304", "Corolla");
 myCar.start(); // Calls overridden method
 }
 }
-
+//
 2.  Design a Java class called Student with attributes id, name, and marks:
     ●
     Create a method to calculate the grade based on marks using this rule:

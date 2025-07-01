@@ -1,0 +1,386 @@
+1.Which of the following is the correct way to declare and initialize an integer array in
+Java?
+○ int[] arr = new int();
+○ int arr[] = {1, 2, 3};
+○ array arr = new int[3];
+○ int arr = [1, 2, 3];
+ans: ( int arr[] = {1, 2, 3}; )
+
+2.What is the output of the following code?
+int a = 5, b = 2;
+System.out.println(a / b);
+ans: 2 ( int 5/int 2 = int 2 if float then 2.0 )
+
+3.Which of these allows a class to inherit from another class?
+ans: A (extends class-class)
+
+4.Which access modifier makes a method accessible from any other class? 
+ans: Public (accesible by any class)
+
+5.Which of the following is not a feature of object-oriented programming?
+○ Inheritance
+○ Encapsulation
+○ Compilation
+○ Polymorphism
+ans:  Compilation
+
+6.What is method overriding?
+○ Defining multiple methods with the same name in the same class
+○ Changing the return type of a method
+○ Defining a method in a subclass that already exists in the parent class
+○ Using static methods to replace instance methods
+ans: C (Defining a method in a subclass that already exists in the parent class)
+
+7. What will be printed?
+int x = 7;
+System.out.println(++x);
+○ 6
+○ 7
+○ 8
+○ Error
+ans: 8
+
+8. Which of these data types is used to represent a single character in Java?
+○ string
+○ char
+○ character
+○ byte
+ans: char
+
+9. What will the following expression return?
+"Java".length()
+○ 3
+○ 4
+○ 5
+○ Compilation Error
+ans:4
+
+10. Which of the following best describes encapsulation?
+○ Writing long code in a single class
+○ Separating UI from logic
+○ Hiding implementation details and exposing only necessary parts
+○ Using only public variables
+ans: Writing long code in a single class
+
+11. Which Java keyword is used to inherit from an interface?
+○ extends
+○ implements
+○ inherit
+○ include
+ans: implements
+
+12. Which loop is guaranteed to execute at least once?
+○ for
+○ while
+○ do-while
+○ foreach
+ans: do while
+
+SECTION : B
+
+1. Explain method overloading in Java with examples. How is it different from method
+   overriding?
+   ans: Method overloading is a feature that allows us to define multiple methods with the same name but different para meters within a class. It is also known as Compile-time polymorphism. There are different ways of method overloading in java.They are
+   - changing the number of parameters
+   - changing the data types of the arguments
+   - changing the order of the parameters of method
+     syntax:
+     class ClassName{
+     return_type methodName(param1, param2,... param_n){
+     //statements
+     }
+     return_type methodName(different_param1, different_param2,..... different_param_n){
+     //statements
+     }
+     }
+     example: changing the data types of the argument types
+     public class Sum{
+     //first method with int datatype
+     public void add(int x, int y){
+     return x+y;
+     }
+     //second method with same name but with double datatype
+     public double add(double x, double y){
+     return x+y;
+     }
+     //main mathod
+     public static void main(String[] args){
+     //creating object of class Sum
+     Sum obj = new Sum();
+     //adding for first method
+     System.out.println("first method sum :"+obj.add(2,2));
+     //adding for second method
+     System.out.println("second method sum :"+obj.add(1,2));
+     }
+     }
+
+
+2. What is the role of the super keyword in Java? Demonstrate its usage with a code example.
+= Super keyword is used while following the concept of inheritence in java. Inheritence ensures that the methods or attributes of the parent class(super class)
+can be inherited to the child class (sub class)by extending the parent class in the child class. The super keyword is a java reference keyword
+which refers to the methods and attributes of the immediate parent class/objects. It is used when one needs to call the methods/variables of a super class
+from a sub class.
+Whenever the superclass and sub class have the same method/variable name, the super keyword specifies that particular method or variable belongs to the super class
+avoiding any confusion created.
+
+// Parent/super class
+class Animal{
+    String color = "black Animal";
+    void walk(){
+        System.out.println(" walk Animal ")
+    }
+}
+
+// Child/sub class
+class Duck extends Animal{
+    String color = "white Duck";
+    void walk(){
+        System.out.println(" walk or swim ").
+        super.walk(); //invokes the method of super class
+        System.out.println(super.color); //invokes the color of Animal
+        System.out.println(color);
+        
+    }
+}
+// main class
+public class Main {
+    public static void main(String[] args){
+        Duck d = new Duck();
+        d.walk();
+    }
+}
+
+Section : C
+
+a. Java class and object
+class is the blueprint of an object that share common characteristics and common properties. It is a user-defined blueprint or prototpye from which objects are created.
+Properties of java classes:
+- It is a prototpye from which objects are created.
+- class doesnot occupy memory.
+- A class in java contain data mebers, methods, constructor and interface.
+syntax: 
+access_modifier class ClassName{
+    data members;
+    methods;
+    constructors;
+}
+
+object in java is a basic unit that represents real-life entities which are the instances of a class that are created to use the attributes and methods of a  class.
+It has state which is represented by attributes of an object, behaviour which is represneted by methods of an object and identity which gives a unique name to an object.
+syntax:
+ClassName objectName = new ClassName();
+example demonstrating class and object
+public class Student{ // class declaration with classname Student
+    // data members
+    int number;
+    public static void main(String[] args){
+        Student stdObj = new Student(); // object creationg with objectname stdObj
+        stdObj.number =10; //assigning value
+        System.out.println("The number is :"+stdObj.number);
+    }
+}
+
+b.Constructor Overloading
+= Constructor overloading is a technique of having more than one constructor of a class with different parameters.It is used for provoding flexibility
+in object creation and to initiaize objects with different sets of data.This improves code readability and helps avoid redundant code.
+
+//main class
+public class Person 
+{	
+// Declaring a non-parameterized constructor.
+   Person() { 
+      System.out.println("Introduction:");
+   }
+// Declaring one parameterized constructor.
+   Person(String name){
+     System.out.println("Name: " +name);	
+   }
+// Declaring two parameterized constructor.
+   Person(String scname, int rollNo) {
+	 System.out.println("School name: "+scname+ ", "+"Roll no:"+rollNo);
+   }
+
+   //main method
+public static void main(String[] args) 
+{
+  person p1 = new Person(); // calling with zero argument.
+  Person p2 = new Person("Prashuna"); // calling with one argument.
+  Person p3 = new Person("Softwarica", 12); // calling with two arguments.
+ }
+}
+
+c. access modifiers
+Access modifiers are keywords that are used to set the accessibility(visibility) of classes, interface, variable and methods.
+The types of access modifiers are:
+1. Default : if no access modifier is specified, it is considered as default 
+2. Public : It is accessible from any other class in the same package or outside of the package.
+3. Private : It is accessbile only within the class. it is not accessible from outside the class.
+4. Protected : It is accessible within the class, in the same package and also in the subclasses of the class in other packages.
+ syntax:
+ private:
+ private dataType variableName;
+ private returnType methodName(){
+    // method body
+ }
+ public:
+ public dataYpe variableName;
+ public returnType methodName() {
+    // method body
+}
+protected:
+protected dataType variableName;
+protected returnType methodName() {
+    // method body
+}
+default:no keyword is used
+dataType variableName;
+returnType methodName() {
+    // method body
+}
+
+example:
+public class AccessModifierExample{ //classs is public
+    private int num1=10; // private variable
+    protected int num2=20; //protected variable
+    int defaultNum=30; //default access modifier variable
+    // method 
+    public void display(){
+        System.out.println("Private value is :"+num1);
+         System.out.println("protected value is :"+num2);
+          System.out.println("default value is :"+defaultNum);
+    }
+    public static void main(String[] args){
+        AccessModifierExample obj = new AccessModifierExample();
+        obj.display(); //calling the method display
+    }
+}
+
+d. Importance of the main method
+= Main method is the entry point for the java application.Without the main method, the Java Virtual Machine (JVM) would not know where to 
+begin the execution of the program, and a runtime error would occur. It acts like the "starting point" or the "gatekeeper" of the program.
+Syntax: public static void main(String[] args){
+    //main code to be executed
+}
+Here "public" is the access modifier which denotes that it can be executed from anywhere. Static allows to call the main method without creating 
+it's object, "void" specifies no return type and String[] args is used to receive command line arguments.
+
+Section:D
+
+1.Implement a Java class Calculator that uses method overloading to perform the following:
+● Add two integers
+● Add two doubles
+● Concatenate two strings
+● Demonstrate all methods in the main method
+
+class Calculator {
+
+    // Method 1: Add two integers
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: Add two doubles
+    double add(double a, double b) {
+        return a + b;
+    }
+
+    // Method 3: Concatenate two strings
+    String add(String a, String b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        // Demonstrating integer addition
+        int sumInt = calc.add(10, 20);
+        System.out.println("Sum of integers: " + sumInt);
+
+        // Demonstrating double addition
+        double sumDouble = calc.add(5.5, 3.2);
+        System.out.println("Sum of doubles: " + sumDouble);
+
+        // Demonstrating string concatenation
+        String resultString = calc.add("Prashuna, ", "Khanal");
+        System.out.println("Concatenated string: " + resultString);
+    }
+}
+
+2.Create a simple Employee Management System using inheritance:
+● Define a base class Employee with name and ID.
+● Create subclasses FullTimeEmployee and PartTimeEmployee with additional
+attributes.
+● Override a method calculateSalary() in each subclass and display the salary.
+
+// parent class Employee
+class Employee {
+    String name;
+    int id;
+
+    // Constructor
+    Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    // method to be overridden in subclasses
+    void calculateSalary() {
+        System.out.println("Calculating salary for employee");
+    }
+
+    void displayDetails() {
+        System.out.println("Name: " + name + ", ID: " + id);
+    }
+}
+
+// subclass for full-time employee
+class FullTimeEmployee extends Employee {
+    double monthlySalary;
+
+    FullTimeEmployee(String name, int id, double monthlySalary) {
+        super(name, id);
+        this.monthlySalary = monthlySalary;
+    }
+
+    @Override
+    void calculateSalary() {
+        System.out.println("Full-Time Employee Salary: " + monthlySalary);
+    }
+}
+
+// Subclass for part-time employee
+class PartTimeEmployee extends Employee {
+    int hoursWorked;
+    double hourlyRate;
+
+    PartTimeEmployee(String name, int id, int hoursWorked, double hourlyRate) {
+        super(name, id);
+        this.hoursWorked = hoursWorked;
+        this.hourlyRate = hourlyRate;
+    }
+
+    @Override
+    void calculateSalary() {
+        double salary = hoursWorked * hourlyRate;
+        System.out.println("Part-Time Employee Salary: " + salary);
+    }
+}
+
+// Main class to test
+public class EmployeeManagementSystem {
+    public static void main(String[] args) {
+        FullTimeEmployee obj1 = new FullTimeEmployee("Babita", 101, 50000);
+        PartTimeEmployee obj2 = new PartTimeEmployee("Prashuna", 102, 80, 200);
+
+        obj1.displayDetails();
+        obj1.calculateSalary();
+
+       
+
+        obj2.displayDetails();
+        obj2.calculateSalary();
+    }
+}
+
