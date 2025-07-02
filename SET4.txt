@@ -1,0 +1,423 @@
+1. Which of the following keywords is used to define a subclass in Java?
+ans: extends
+
+2. What is the output of the following?
+int x = 3;
+x *= 2 + 5;  // (x(2+5))
+System.out.println(x);
+ans: 21
+
+3. What does the term "object" refer to in object-oriented programming?
+ans : An instance of a class
+
+4. Which operator is used to compare two values for equality?
+ans: == //for equality
+    .equals() //object content
+
+5. What does the break statement do in Java loops?
+ans: Exits the loop entirely
+
+6. Which of the following is a valid method signature in Java?
+○ void method(int x)
+○ int method x()
+○ void method = int()
+○ method void(int x)
+ans: void method(int x)
+
+7. What is printed by the following?
+int[] arr = {2, 4, 6};
+System.out.println(arr.length);
+ans: 3
+
+8. Which of the following correctly defines an interface in Java?
+ans: interface InterfaceName {}
+
+9. In Java, how is memory allocated for an object?
+○ Stack memory //method calls/variables
+○ Heap memory
+○ Static memory //static keyword
+○ Constant pool //string literals
+ans: Heap Memory
+
+10. Which concept allows code reuse in OOP?
+ans: Inheritance
+
+11. What does the return keyword do in a method?
+ans: Exits the method and optionally returns a value
+
+12. What is the result of this expression?
+System.out.println("Java" + 10 + 5);
+ans: Java105
+
+SECTION: B 
+
+1. Define encapsulation. How is it implemented in Java? Provide an example using getter
+   and setter methods.
+= encapsulation is the bulding of attributes, variables and methods that operate on that data within in a single unit like class.They are use to hide both data and function of related class or objects. To achieve this we must declare class variable as private and give public get and set methods to access and update those private variable.
+  The get method returns the variable value and the set method sets the value.
+  sytnax: public class ClassName{
+  private datatype variableName; //private variable
+  public DataType getVariableName(){ //getter with public accessmodifier
+  //return variableName;
+
+            }
+            public void setVariableName(DataType value){ //setter with public accessmodifier
+              this.variableName = value;
+            }
+
+  }
+  example demonstrating getter and setter
+  //encapsulation class
+
+  public class Student{
+  private String name; //private variables name and age
+  private int age;
+  //public getter method for getting name
+  public String getName(){
+  return name;
+  }
+  //getter method for age
+
+  public int getAge(){
+  return age;
+  }
+  //public setter method for setting name
+  public void setName(String name){
+  this.name=name;
+  }
+  // public setter method for setting age
+  public void setAge(int age){
+  this.age=age;
+  }
+  public static void main(String[] args){
+  Student obj= new Student();
+  //setting value for name
+  obj.setName("babita");
+  //setting value for age
+  obj.setAge(20);
+  //getting the value that has been set for name and age
+  System.out.println("Name" +obj.getName() + " and " + " age "+obj.getAge());
+  }
+  }
+  output : Name : Babita and Age : 20
+  Pros of using encapsulation in java
+
+  - protects data from unauthorized access
+  - helps achieve modularity in code
+  - imporves flexibility
+
+2.  Explain the concept of constructor chaining in Java. Demonstrate it using the this() keyword with code.
+  = Constructor chaining is the process of calling one constructor from another constructor within the same class or from parent class. This helps to avoid code duplication and makes code more readable and maintainable.
+    this() is used to call another constructor in the same class, while super() is used to call a constructor from the parent class.
+    syntax: public class ClassName{
+    //default constructor1
+    public ClassName(){
+    this(parameter); //calling constructor2
+    }
+    //constructor 2 with one parameter
+    public ClassName(DataType parameter){
+    this(parameter1, parameter2); //calling constructor 3
+    }
+    //CONSTRUCTOR 3 WITH TWO PARAMETERS
+    public ClassName(DataType parameter1,DataType parameter2 ){
+    //constructor body
+    }
+
+            }
+            example of constructor chaining using this()
+
+            public class Student {
+            private String name;
+            private int age;
+
+            // Default constructor
+            public Student() {
+                this("Ram", 0);  // calls parameterized constructor
+                System.out.println("Default constructor called");
+            }
+
+            // Constructor with one parameter
+            public Student(String name) {
+                this(name, 18);  // calls constructor with tww parameters
+                System.out.println("Single-parameter constructor called");
+            }
+
+            // Constructor with two parameters
+            public Student(String name, int age) {
+                this.name = name;
+                this.age = age;
+                System.out.println("Two-parameter constructor called");
+            }
+
+            public void display() {
+                System.out.println("Name: " + name + ", Age: " + age);
+            }
+
+            // Main method
+            public static void main(String[] args) {
+                Student s1 = new Student();        // Calls default constructor
+                s1.display();
+
+                Student s2 = new Student("Babita"); // Calls constructor with 1 parameter
+                s2.display();
+
+                Student s3 = new Student("Aarav", 21); // Calls constructor with 2 parameters
+                s3.display();
+            }
+
+        }
+
+        output:
+
+    Two-parameter constructor called
+    Default constructor called
+    Name: Ram, Age: 0
+    Two-parameter constructor called
+    Single-parameter constructor called
+    Name: Babita, Age: 18
+    Two-parameter constructor called
+    Name: Aarav, Age: 21
+
+Section C
+
+c. access modifiers
+Access modifiers are keywords that are used to set the accessibility(visibility) of classes, interface, variable and methods.
+The types of access modifiers are:
+1. Default : if no access modifier is specified, it is considered as default 
+2. Public : It is accessible from any other class in the same package or outside of the package.
+3. Private : It is accessbile only within the class. it is not accessible from outside the class.
+4. Protected : It is accessible within the class, in the same package and also in the subclasses of the class in other packages.
+ syntax:
+ private:
+ private dataType variableName;
+ private returnType methodName(){
+    // method body
+ }
+ public:
+ public dataYpe variableName;
+ public returnType methodName() {
+    // method body
+}
+protected:
+protected dataType variableName;
+protected returnType methodName() {
+    // method body
+}
+default:no keyword is used
+dataType variableName;
+returnType methodName() {
+    // method body
+}
+
+example:
+public class AccessModifierExample{ //classs is public
+    private int num1=10; // private variable
+    protected int num2=20; //protected variable
+    int defaultNum=30; //default access modifier variable
+    // method 
+    public void display(){
+        System.out.println("Private value is :"+num1);
+         System.out.println("protected value is :"+num2);
+          System.out.println("default value is :"+defaultNum);
+    }
+    public static void main(String[] args){
+        AccessModifierExample obj = new AccessModifierExample();
+        obj.display(); //calling the method display
+    }
+}
+
+a. Java class and object
+class is the blueprint of an object that share common characteristics and common properties. It is a user-defined blueprint or prototpye from which objects are created.
+Properties of java classes:
+- It is a prototpye from which objects are created.
+- class doesnot occupy memory.
+- A class in java contain data mebers, methods, constructor and interface.
+syntax: 
+access_modifier class ClassName{
+    data members;
+    methods;
+    constructors;
+}
+
+object in java is a basic unit that represents real-life entities which are the instances of a class that are created to use the attributes and methods of a  class.
+It has state which is represented by attributes of an object, behaviour which is represneted by methods of an object and identity which gives a unique name to an object.
+syntax:
+ClassName objectName = new ClassName();
+example demonstrating class and object
+public class Student{ // class declaration with classname Student
+    // data members
+    int number;
+    public static void main(String[] args){
+        Student stdObj = new Student(); // object creationg with objectname stdObj
+        stdObj.number =10; //assigning value
+        System.out.println("The number is :"+stdObj.number);
+    }
+}
+
+d. Use of instanceof operator
+= The instanceof operator is used to check if an object is an instance of a specific class or interface (subclass/implementation).It returns 
+a Boolean value True,if the object is an instance or else returns False.
+
+class Animal{
+    void sound(){
+        System.out.println("Animal makes sound");
+    }
+}
+class Dog extends Animal{
+    void sound(){
+        System.out.println("Barks");
+    }
+}
+public class Main{
+    public static void main(String[]args){
+        Animal a1 = new Animal();
+        Animal a2 = new Dog();
+        System.out.println(a1 instanceof Animal);
+        System.out.println(a2 instanceof Animal);
+    }
+}
+
+e.Abstract class vs Interface
+= Abstract class and interface are core concepts of Abstraction which ensures that only the functional 
+part is exposed to the user keeping the complex implementation part hidden. Abstract class cannot be instantiated and 
+can contain both abstract class and concrete method.Abstract class ensures only partial abstraction and the abstract
+keyword is used to define an abstract class.A class can only inherit from only one abstract class at a time.
+
+Interface supports in full and complete abstraction containing all the abstract methods only, no concrete class
+can be created under interface. A class can implement multiple interface at a time. Since all the methods in it
+are abstract no constructors can be created since, abstract methods cannot be instantiated or doesn't have a body.
+interface keyword is written to create an interface for complete abstraction.
+ // abstract class
+abstract class Animal {
+    // Abstract method
+    abstract void makeSound();
+    // Concrete method
+    void sleep() {
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+public class TestAbstract {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.makeSound(); // Output: Bark
+        d.sleep();     // Output: Sleeping...
+    }
+}
+
+//interface
+interface Flyable {
+    void fly();
+}
+
+class Bird implements Flyable {
+    @Override
+    public void fly() {
+        System.out.println("Bird is flying");
+    }
+}
+
+public class TestInterface {
+    public static void main(String[] args) {
+        Bird b = new Bird();
+        b.fly(); // Output: Bird is flying
+    }
+}
+
+Section: d
+
+1. Develop a Java program that demonstrates multi-level inheritance:
+   ●
+   Create a base class Animal with method makeSound().
+   ●
+   Create a subclass Mammal and another subclass Dog that overrides the method.
+   ●
+   In the main method, show how overriding works.
+
+   Ans:
+   // Base class
+   class Animal {
+   void makeSound() {
+   System.out.println("Animal makes a sound");
+   }
+   }
+
+// subclass 1
+class Mammal extends Animal {
+@Override
+void makeSound() {
+System.out.println("Mammal makes a sound");
+}
+}
+
+// subclass-2
+class Dog extends Mammal {
+@Override
+void makeSound() {
+System.out.println("Dog barks");
+}
+}
+
+// Main class
+public class InheritanceDemo {
+public static void main(String[] args) {
+// Creating objects of each class
+Animal a = new Animal();
+Mammal m = new Mammal();
+Dog d = new Dog();
+
+        // Method calls
+        a.makeSound();
+        m.makeSound();
+        d.makeSound();
+
+
+    }
+
+}
+output:
+Animal makes a sound  
+Mammal makes a sound  
+Dog barks
+
+3.  Create a program that demonstrates the use of static variables and methods:
+    ●
+    Define a class Counter that tracks how many objects have been created.
+    ●
+    Use a static variable and a static method to display the total count.
+    ●
+    Test it by creating multiple objects in the main method.
+    ans:
+    public class Counter {
+    // Static variable to keep track of how many objects have been created
+    private static int count = 0;
+
+        // Constructor increments count whenever a new object is created
+        public Counter() {
+            count++;  // Increase count by 1
+        }
+
+        // Static method to display the total count of objects created
+        public static void displayCount() {
+            System.out.println("Total objects created: " + count);
+        }
+
+        // Main method to test the Counter class
+        public static void main(String[] args) {
+            // Creating multiple objects of Counter
+            Counter c1 = new Counter();
+            Counter c2 = new Counter();
+            Counter c3 = new Counter();
+
+            // Calling static method to display how many objects were created
+            Counter.displayCount();  // Output: Total objects created: 3
+        }
+
+    }
